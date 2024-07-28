@@ -1,7 +1,7 @@
-export default function Footer() {
+export default function NaviBar() {
     return (
       <div className="">
-        <h2>Footer</h2>
+        <h2>NaviBar</h2>
       </div>
     );
   }
