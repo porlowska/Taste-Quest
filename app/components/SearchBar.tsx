@@ -1,24 +1,35 @@
 "use client";
 
-import {
-  ToggleSwitch,
-  TextInput,
-  Select,
-  Button,
-  Label,
-
-  
-} from "flowbite-react";
+import { ToggleSwitch, TextInput, Select, Button, Label } from "flowbite-react";
 import { useState } from "react";
 import { HiSearch, HiRefresh, HiFilter } from "react-icons/hi";
 
-export default function SearchBar() {
-  const [showFilters, setShowFilters] = useState(false); 
+export default function SearchBar(onSearch, errorMessage) {
+  const [showFilters, setShowFilters] = useState(false);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    await onSearch();
+    setLoading(false);
+  };
 
+  // check if we are fetching by recipe or ingredient (maybe add random later)
+  // text input
+  // category
+  // cuisine
+  // diet
+  // intolerances
+
+  // useEffect for errors
 
   return (
-    <div className="m-4 mt-8 flex flex-col items-center">
+    <form
+      className="m-4 mt-8 flex flex-col items-center"
+      onSubmit={handleSubmit}
+    >
       <div className="flex items-center justify-between">
         {/* Search input and buttons */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
@@ -28,7 +39,11 @@ export default function SearchBar() {
               value="Search by:"
               className="whitespace-nowrap"
             />
-            <Select id="searchBy" className="ml-2 min-w-[135px] flex-grow" required>
+            <Select
+              id="searchBy"
+              className="ml-2 min-w-[135px] flex-grow"
+              required
+            >
               <option>recipe name</option>
               <option>ingredients</option>
             </Select>
@@ -40,37 +55,35 @@ export default function SearchBar() {
             icon={HiSearch}
             placeholder="Search input here"
             className="min-w-[190px]"
+            onChange={(e) => setInput(e.target.value)}
             required
           />
-          
+
           {/* TODO:
           -chenge hover and focus colour effects */}
 
-
           <div className="flex flex-row gap-5">
-              <Button className="bg-green text-dark hover:bg-green"
-              onClick={() => setShowFilters(!showFilters)}>
-              Filters <HiFilter className="ml-2 my-auto text-dark"/>
+            <Button
+              className="bg-green text-dark hover:bg-green"
+              onClick={() => setShowFilters(!showFilters)}
+            >
+              Filters <HiFilter className="text-dark my-auto ml-2" />
             </Button>
-            <Button className="bg-dark text-light"
-            type="submit">
-              Search <HiSearch className="ml-2 my-auto" />
+            <Button className="bg-dark text-light" type="submit">
+              Search <HiSearch className="my-auto ml-2" />
             </Button>
-            <Button className="bg-lavender text-dark"
-            type="submit">
-              Random search <HiRefresh className="ml-2 my-auto" />
-            </Button>
-            
+            {/* <Button className="bg-lavender text-dark" type="submit">
+              Random search <HiRefresh className="my-auto ml-2" />
+            </Button> */}
           </div>
         </div>
-        
       </div>
 
       {/* Filters Section */}
       <div className={`mt-4 ${showFilters ? "block" : "hidden"}`}>
         <div className="flex flex-row flex-wrap gap-5 rounded-lg p-1">
-          <Select className="min-w-[170px]" >
-          <option value="">RECIPE CATEGORY</option>
+          <Select className="min-w-[170px]">
+            <option value="">RECIPE CATEGORY</option>
             <option>main course</option>
             <option>side dish</option>
             <option>dessert</option>
@@ -84,8 +97,8 @@ export default function SearchBar() {
             <option>drink</option>
           </Select>
 
-          <Select  className="min-w-[170px]" >
-          <option value="">CUISINE</option>
+          <Select className="min-w-[170px]">
+            <option value="">CUISINE</option>
             <option>African</option>
             <option>Chinese</option>
             <option>Japanese</option>
@@ -111,8 +124,8 @@ export default function SearchBar() {
             <option>Latin American</option>
           </Select>
 
-          <Select className="min-w-[170px]" >
-          <option value="">DIET TYPE</option>
+          <Select className="min-w-[170px]">
+            <option value="">DIET TYPE</option>
             <option>Pescetarian</option>
             <option>Lacto Vegetarian</option>
             <option>Ovo Vegetarian</option>
@@ -122,8 +135,8 @@ export default function SearchBar() {
             <option>Primal</option>
           </Select>
 
-          <Select className="min-w-[170px]" >
-          <option value="">INTOLERANCES</option>
+          <Select className="min-w-[170px]">
+            <option value="">INTOLERANCES</option>
             <option>Dairy</option>
             <option>Egg</option>
             <option>Gluten</option>
@@ -138,6 +151,6 @@ export default function SearchBar() {
           </Select>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
