@@ -8,23 +8,30 @@ import {
 } from "flowbite-react";
 export default function NaviBar() {
   return (
-    <Navbar fluid rounded>
+    <Navbar fluid className="bg-light" >
       <NavbarBrand as={Link} href="#">
         <img
           src="images/logo.png"
-          className="mr-3 h-6 sm:h-9"
+          className="mr-3 h-6 sm:h-10"
           alt="MEGEB Logo"
         />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+        <span className="self-center whitespace-nowrap text-2xl font-kulim font-bold text-dark dark:text-light">
           MEGEB
         </span>
       </NavbarBrand>
       <NavbarToggle />
-      <NavbarCollapse>
-        <NavbarLink href="#" active>
-          Home
+      <NavbarCollapse className="bg-light">
+        <NavbarLink 
+            href="#"
+            className="font-kulim font-normal text-center text-dark bg-light hover:text-lavender md:hover:text-lavender hover:bg-inherit " 
+            rounded>
+            Home
         </NavbarLink>
-        <NavbarLink href="#">Favourites</NavbarLink>
+        <NavbarLink 
+          href="#"
+          className="font-kulim text-center text-dark bg-light hover:text-lavender md:hover:text-lavender hover:bg-inherit" >
+          Favourites
+        </NavbarLink>
       </NavbarCollapse>
     </Navbar>
   );
