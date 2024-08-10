@@ -1,18 +1,18 @@
 export default function Jumbotron() {
   return (
-    <section className="bg-white bg-no-repeat">
-      <div className="mx-auto flex max-w-screen-xl justify-center bg-[url('/jumbotron.jpg')] bg-center px-4 py-24 text-center bg-blend-multiply lg:py-56">
-        <div className="flex max-w-lg flex-col items-center justify-center rounded-lg bg-white bg-opacity-75 p-4">
-          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-black md:text-5xl lg:text-6xl">
+    <section className="bg-light bg-no-repeat bg-cover my-1">
+      <div className="mx-auto flex max-w-screen-xl justify-center bg-[url('/jumbotron.jpg')] bg-center bg-cover px-4 py-28 text-center lg:py-56">
+        <div className="flex max-w-xl flex-col rounded-lg bg-light bg-opacity-80 p-6 md:p-8">
+          <h1 className="font-kulim mb-4 text-4xl font-bold leading-none text-dark mt-1">
             Elevate Your Home Cooking
           </h1>
-          <p className="mb-8 text-lg font-normal text-gray-700 sm:px-16 md:w-[200px] lg:px-48 lg:text-xl">
+          <p className="font-kulim block mb-8 text-lg font-normal text-[#757192]">
             Delicious recipes at your fingertips.
           </p>
           <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
             <a
               href="#"
-              className="inline-flex items-center justify-center rounded-lg bg-gray-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-gray-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+              className="inline-flex font- items-center justify-center rounded-lg bg-dark px-5 py-3 text-center text-base font-medium text-light hover:bg-lavender focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             >
               Search now!
               <svg

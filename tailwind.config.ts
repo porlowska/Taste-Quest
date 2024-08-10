@@ -9,7 +9,17 @@ const config: Config = {
     flowbite.content(),
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        light: '#F9F7F2', 
+        green: '#BDD4CE',
+        lavender: '#9D98C0',
+        dark: '#26192B',
+      },
+      fontFamily: {
+        kulim: ['Kulim Park', 'sans-serif'],
+      }
+    },
   },
   plugins: [flowbite.plugin()],
 };
