@@ -3,7 +3,7 @@
 import { Card, Button } from "flowbite-react";
 import { HiHeart } from "react-icons/hi";
 
-export default function RecipeCard() {
+export default function RecipeCard({recipe}) {
 
   const fillColor='none'
   // const fillColor = !fav
@@ -15,21 +15,27 @@ export default function RecipeCard() {
     // add to hav change fill of the heart
   }
 
+  let tags = [recipe.dishTypes, recipe.cuisines, recipe.diets, recipe.occasions].flat()
+
   return (
     <Card
-      className="max-w-sm"
-      imgAlt="recipie.name"
-      imgSrc="/demo/demo-food.jpg"
+      className="max-w-md "
+      imgAlt={recipe.title}
+      imgSrc={recipe.image}
     >
       <a href="#">
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-          Demo Recipe
+          {recipe.title}
         </h5>
       </a>
       
-      <div className="flex items-center justify-between">
-        {/* iterate through its categories if possible  */}
-        <span className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300"># {'Catergory'}</span>
+      <div className="flex justify-between">
+        <div className="block my-auto">
+        {tags.map((tag, index)=>(
+          <span key={index} className="bg-green text-dark text-sm  me-2 px-3 py-1 rounded-full dark:bg-gray-700 dark:text-gray-300"># {tag}</span>
+        ))}
+        </div>
+
         {/* add to favourites  */}
 
         <Button outline pill>
