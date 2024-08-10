@@ -8,7 +8,7 @@ import {
 } from "flowbite-react";
 export default function NaviBar() {
   return (
-    <Navbar fluid className="bg-light" >
+    <Navbar fluid className="bg-light p-3 mx-5 lg:px-20" >
       <NavbarBrand as={Link} href="#">
         <img
           src="images/logo.png"

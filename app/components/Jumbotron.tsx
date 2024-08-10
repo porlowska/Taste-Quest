@@ -1,7 +1,7 @@
 export default function Jumbotron() {
   return (
     <section className="bg-light bg-no-repeat bg-cover my-1">
-      <div className="mx-auto flex max-w-screen-xl justify-center bg-[url('/jumbotron.jpg')] bg-center bg-cover px-4 py-28 text-center lg:py-56">
+      <div className="mx-auto flex max-w-screen-xl justify-center bg-[url('/jumbotron.jpg')] bg-center bg-cover px-4 py-28 text-center lg:py-56 rounded-xl">
         <div className="flex max-w-xl flex-col rounded-lg bg-light bg-opacity-80 p-6 md:p-8">
           <h1 className="font-kulim mb-4 text-4xl font-bold leading-none text-dark mt-1">
             Elevate Your Home Cooking

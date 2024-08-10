@@ -1,7 +1,7 @@
 import NaviBar from "../components/NaviBar";
 import Jumbotron from "../components/Jumbotron";
 import SearchBar from "../components/SearchBar";
-import RecipeCard from "../components/RecipeCard";
+import RecipeSection from "../components/RecipieSection";
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
           <div>
             <h2>Searched recipies</h2>
             {/* iterrated */}
-              <RecipeCard/> 
+              <RecipeSection/> 
           </div>
           <Footer/>
         </main>
