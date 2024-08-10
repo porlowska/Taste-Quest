@@ -16,10 +16,10 @@ export default function Home() {
       {/* div witn img  */}
       <div>
         <img
-          src={`${data.recipes[0].image}`}
+          src={data.recipes[0].image}
           width={500}
           height={500}
-          alt="recipe name"
+          alt={data.recipes[0].title}
         />
       </div>
       {/* div with recipe */}

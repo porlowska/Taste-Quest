@@ -5,7 +5,7 @@ import data from "../api/endpoint-test";
 // create .env file for keys!!
 
 const RecipeSearch = () => {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState(data.recipes);
   // handle search async function: takes a url and runs through if statements to select filters
   // const options = headers for key
   // try/catch for data response
@@ -21,8 +21,8 @@ const RecipeSearch = () => {
   };
   return (
     <div>
-      <SearchBar onSearch={handleSearch} errorMessage={"error"} />
-      <RecipeSection recipes={data.recipes} />
+      <SearchBar onSearch={handleSearch}  errorMessage={"error"} />
+      <RecipeSection recipes={recipes} showResults={false}/>
     </div>
   );
 };
