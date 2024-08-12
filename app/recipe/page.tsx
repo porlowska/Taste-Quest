@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import NaviBar from "../components/NaviBar";
 import Footer from "../components/Footer";
 import data from "../api/endpoint-test";
@@ -27,7 +28,10 @@ export default function Home() {
     recipe.occasions,
   ].flat();
 
-  const handleClick = (e) => {};
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/");
+  };
 
   return (
     <section className="">
