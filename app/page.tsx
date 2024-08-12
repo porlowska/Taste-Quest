@@ -2,9 +2,9 @@
 //import { DarkThemeToggle } from "flowbite-react";
 //<DarkThemeToggle />
 import NaviBar from "./components/NaviBar";
-import Jumbotron from "./components/Jumbotron";
+import Jumbotron from "./components/homePage/Jumbotron";
 import Footer from "./components/Footer";
-import RecipeSearch from "./components/RecipeSearch";
+import RecipeSearch from "./components/homePage/RecipeSearch";
 
 export default function Home() {
   //   const router = useRouter()
