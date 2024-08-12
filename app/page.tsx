@@ -7,6 +7,10 @@ import Footer from "./components/Footer";
 import RecipeSearch from "./components/homePage/RecipeSearch";
 
 export default function Home() {
+  const handleClick = () => {
+    document.getElementById("search").scrollIntoView({ behavior: "smooth" });
+  };
+
   //   const router = useRouter()
 
   //   function handleClick(){
@@ -14,11 +18,12 @@ export default function Home() {
   //   }
 
   return (
-    <main className="">
+    <>
       <NaviBar />
-      <Jumbotron />
+      <Jumbotron onClick={handleClick} />
       <RecipeSearch />
+
       <Footer />
-    </main>
+    </>
   );
 }
