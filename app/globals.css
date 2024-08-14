@@ -71,3 +71,12 @@
 body{
     background-color: #F9F7F2;
 }
+
+#instructions ol {
+    list-style-type: decimal;
+    padding: 0.75rem;
+}
+
+#instructions ol li {
+    margin-bottom: 0.25rem;
+}

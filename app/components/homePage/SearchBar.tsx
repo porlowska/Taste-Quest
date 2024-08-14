@@ -29,6 +29,7 @@ export default function SearchBar(onSearch, errorMessage) {
     <form
       className="m-4 mt-8 flex flex-col items-center"
       onSubmit={handleSubmit}
+      id="search"
     >
       <div className="flex items-center justify-between">
         {/* Search input and buttons */}
@@ -67,7 +68,7 @@ export default function SearchBar(onSearch, errorMessage) {
               className="bg-green text-dark hover:bg-green"
               onClick={() => setShowFilters(!showFilters)}
             >
-              Filters <HiFilter className="text-dark my-auto ml-2" />
+              Filters <HiFilter className="my-auto ml-2 text-dark" />
             </Button>
             <Button className="bg-dark text-light" type="submit">
               Search <HiSearch className="my-auto ml-2" />
