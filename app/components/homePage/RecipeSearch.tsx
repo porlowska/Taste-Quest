@@ -1,4 +1,4 @@
-import RecipeSection from "./RecipieSection";
+import RecipeSection from "./RecipeSection";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 import data from "../../api/endpoint-test";
@@ -53,6 +53,8 @@ const RecipeSearch = () => {
               diet: diet,
               intolerances: intolerances,
               type: category,
+              instructionsRequired: "true",
+              addRecipeInformation: "true",
               number: "1",
             },
             headers: headers,
@@ -69,8 +71,8 @@ const RecipeSearch = () => {
     try {
       const response = await axios.request(options);
       setShowResults(true);
-      setRecipes(response.data);
-      console.log("data ---> ", response.data);
+      setRecipes(response.data.results);
+      console.log("data ---> ", response.data.results);
     } catch (error) {
       console.error(error);
     }

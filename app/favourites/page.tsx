@@ -1,7 +1,7 @@
 import NaviBar from "../components/NaviBar";
 import Jumbotron from "../components/homePage/Jumbotron";
 import SearchBar from "../components/homePage/SearchBar";
-import RecipeSection from "../components/homePage/RecipieSection";
+import RecipeSection from "../components/homePage/RecipeSection";
 import Footer from "../components/Footer";
 
 export default function Home() {

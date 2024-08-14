@@ -1,10 +1,10 @@
 "use client";
 
-import { ToggleSwitch, TextInput, Select, Button, Label } from "flowbite-react";
+import { TextInput, Select, Button, Label } from "flowbite-react";
 import { useState } from "react";
-import { HiSearch, HiRefresh, HiFilter } from "react-icons/hi";
+import { HiSearch, HiFilter } from "react-icons/hi";
 
-export default function SearchBar(onSearch, errorMessage) {
+export default function SearchBar({ onSearch, errorMessage }) {
   const [showFilters, setShowFilters] = useState(false);
   const [searchBy, setSearchBy] = useState("recipe name");
   const [input, setInput] = useState("");
