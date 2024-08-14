@@ -1,8 +1,6 @@
 import RecipeCard from "./RecipeCard";
 
 export default function RecipeSection({ recipes, showResults }) {
-  // if !searched then display recipe of the day
-  // else iterate through array of data
   console.log(recipes);
   return (
     <section>

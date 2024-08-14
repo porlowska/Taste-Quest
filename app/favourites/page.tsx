@@ -8,12 +8,12 @@ export default function Home() {
   return (
     <main className="">
       <NaviBar />
-      <SearchBar />
-      <Jumbotron />
+      {/* <SearchBar />
+      <Jumbotron /> */}
       <div>
         <h2>Searched recipies</h2>
         {/* iterrated */}
-        <RecipeSection />
+        {/* <RecipeSection /> */}
       </div>
       <Footer />
     </main>

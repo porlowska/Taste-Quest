@@ -2,6 +2,7 @@
 
 import { Card, Button } from "flowbite-react";
 import { HiHeart } from "react-icons/hi";
+import { useRouter } from "next/navigation";
 
 export default function RecipeCard({ recipeDetails }) {
   const fillColor = "none";
@@ -10,9 +11,15 @@ export default function RecipeCard({ recipeDetails }) {
   //   : fav= true
   //   ?'currentColour';
 
-  function handleClick() {
+  function handleFavClick() {
     // add to hav change fill of the heart
   }
+
+  const router = useRouter();
+
+  const handleRecipeClick = () => {
+    router.push("/recipe");
+  };
 
   let tags = [
     recipeDetails.dishTypes,
@@ -26,12 +33,13 @@ export default function RecipeCard({ recipeDetails }) {
       className="max-w-md "
       imgAlt={recipeDetails.title}
       imgSrc={recipeDetails.image}
+      onClick={handleRecipeClick}
     >
-      <a href="#">
+      <div>
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
           {recipeDetails.title}
         </h5>
-      </a>
+      </div>
 
       <div className="flex justify-between">
         <div className="my-auto block">
