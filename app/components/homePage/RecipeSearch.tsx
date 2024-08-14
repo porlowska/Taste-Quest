@@ -55,7 +55,7 @@ const RecipeSearch = () => {
               type: category,
               instructionsRequired: "true",
               addRecipeInformation: "true",
-              number: "1",
+              number: "3",
             },
             headers: headers,
           }
@@ -81,7 +81,7 @@ const RecipeSearch = () => {
   return (
     <div>
       <SearchBar onSearch={handleSearch} errorMessage={"error"} />
-      <RecipeSection recipes={recipes} showResults={false} />
+      <RecipeSection recipes={recipes} showResults={showResults} />
     </div>
   );
 };

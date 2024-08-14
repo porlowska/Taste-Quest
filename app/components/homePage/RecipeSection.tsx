@@ -7,7 +7,7 @@ export default function RecipeSection({ recipes, showResults }) {
   return (
     <section>
       {showResults ? (
-        <div className="wrap justyfy-evenly mt-3 flex flex-col md:flex-row">
+        <div className="wrap mt-3 flex flex-col gap-8 md:flex-row md:justify-center ">
           {recipes.map((recipe, index) => (
             <RecipeCard key={index} recipeDetails={recipe} />
           ))}
