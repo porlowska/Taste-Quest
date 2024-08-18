@@ -74,7 +74,7 @@ export default function SearchBar({ onSearch, errorMessage }) {
 
           <div className="flex flex-row gap-5">
             <Button
-              className="bg-green text-dark hover:bg-green"
+              className={`bg-green text-dark hover:bg-green ${searchBy === "ingredients" ? "hidden" : ""}`}
               onClick={() => setShowFilters(!showFilters)}
             >
               Filters <HiFilter className="my-auto ml-2 text-dark" />
@@ -90,7 +90,9 @@ export default function SearchBar({ onSearch, errorMessage }) {
       </div>
 
       {/* Filters Section */}
-      <div className={`mt-4 ${showFilters ? "block" : "hidden"}`}>
+      <div
+        className={`mt-4 ${showFilters || searchBy === "recipe name" ? "block" : "hidden"}`}
+      >
         <div className="flex flex-row flex-wrap gap-5 rounded-lg p-1">
           <Select
             className="min-w-[170px]"
