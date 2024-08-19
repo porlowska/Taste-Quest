@@ -7,6 +7,7 @@ const extractData = (data) => {
     return data.map(recipe => {
         //Deconstructing/ extracting only needed elementns
         const {
+            id,
             vegetarian,
             vegan,
             glutenFree,
@@ -26,6 +27,7 @@ const extractData = (data) => {
 
         // Formatting and returning the new object with only the required properties
         return {
+            id,
             vegetarian,
             vegan,
             glutenFree,

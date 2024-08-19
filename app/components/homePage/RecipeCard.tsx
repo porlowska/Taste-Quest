@@ -18,6 +18,7 @@ export default function RecipeCard({ recipeDetails }) {
   const router = useRouter();
 
   const handleRecipeClick = () => {
+    localStorage.setItem("selectedRecipe", JSON.stringify(recipeDetails));
     router.push("/recipe");
   };
 

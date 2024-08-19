@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import NaviBar from "../components/NaviBar";
 import Footer from "../components/Footer";
 import data from "../api/endpoint-test";
@@ -12,21 +13,24 @@ import RecipeInstructions from "../components/recipePage/RecipeInstructons";
 // import { getRecipeData } from "../components/SearchBar";
 
 export default function Home() {
-  let recipe = data.recipes[0];
-  let details = [
-    recipe.title,
-    recipe.image,
-    recipe.readyInMinutes,
-    recipe.servings,
-  ];
-  let ingredients = recipe.extendedIngredients; //array of ingrediednts
-  let instructions = recipe.instructions;
-  let tags = [
-    recipe.dishTypes,
-    recipe.cuisines,
-    recipe.diets,
-    recipe.occasions,
-  ].flat();
+  const [recipe, setRecipe] = useState({});
+
+  let tag = [];
+
+  useEffect(() => {
+    const storedRecipe = localStorage.getItem("selectedRecipe");
+    console.log(JSON.parse(storedRecipe));
+    if (storedRecipe) {
+      setRecipe(JSON.parse(storedRecipe));
+      // tag = [
+      //   recipe.dishTypes,
+      //   recipe.cuisines,
+      //   recipe.diets,
+      //   recipe.occasions,
+      // ].flat();
+      console.log(recipe);
+    }
+  }, []);
 
   const router = useRouter();
   const handleClick = () => {
@@ -35,19 +39,19 @@ export default function Home() {
 
   return (
     <section className="">
-      <NaviBar />
+      {/* <NaviBar />
       <ReturnButton onClick={handleClick} />
-      <RecipeDetails details={details} tags={tags} />
+      <RecipeDetails details={recipe.details} tags={tags} />
       <div className="mb-5 flex flex-col md:flex-row">
-        <RecipeIngredients ingredients={ingredients} />
+        <RecipeIngredients ingredients={recipe.ingredients} />
         <img
           src={data.recipes[0].image}
           alt={data.recipes[0].title}
           className="mx-auto max-w-md flex-auto grow rounded-xl shadow-lg md:mr-10 lg:mr-20 lg:max-w-xl"
         />
       </div>
-      <RecipeInstructions instructions={instructions} />
-      <Footer />
+      <RecipeInstructions instructions={recipe.instructions} />
+      <Footer /> */}
     </section>
   );
 }

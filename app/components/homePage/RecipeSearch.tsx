@@ -10,7 +10,7 @@ import extractData from "@/app/api/extractData";
 const RecipeSearch = () => {
   let extractedData;
   const [recipes, setRecipes] = useState(data.recipes);
-  const [showResults, setShowResults] = useState(false);
+  const [isSearched, setisSearched] = useState(false);
 
   const handleSearch = async (
     // searchBy,
@@ -63,7 +63,8 @@ const RecipeSearch = () => {
       console.log("data: ", response.data.results);
       extractedData = extractData(response.data.results);
       console.log("extracted data: ", extractedData);
-      setShowResults(true);
+      setisSearched(true);
+      localStorage.clear();
       setRecipes(response.data.results);
     } catch (error) {
       console.error(error);
@@ -73,7 +74,7 @@ const RecipeSearch = () => {
   return (
     <div>
       <SearchBar onSearch={handleSearch} errorMessage={"error"} />
-      <RecipeSection recipes={recipes} showResults={showResults} />
+      <RecipeSection recipes={recipes} isSearched={isSearched} />
     </div>
   );
 };
