@@ -25,7 +25,7 @@ const RecipeSearch = () => {
   //handle addToFavourites
 
   const handleSearch = async (
-    searchBy,
+    // searchBy,
     input,
     category,
     cuisine,
@@ -33,49 +33,49 @@ const RecipeSearch = () => {
     intolerances,
   ) => {
     const options =
-      searchBy === "recipe name"
-        ? {
-            method: "GET",
-            url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch",
-            params: {
-              query: input,
-              cuisine: cuisine,
-              diet: diet,
-              intolerances: intolerances,
-              type: category,
-              instructionsRequired: "true",
-              addRecipeInformation: "true",
-              number: "2",
-            },
-            headers: {
-              "x-rapidapi-key":
-                "06c5b738f4mshc8d3980a4797856p1bc186jsn6b1d2e762eba",
-              "x-rapidapi-host":
-                "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            },
-          }
-        : {
-            method: "GET",
-            url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
-            params: {
-              ingredients: input,
-              number: "2",
-            },
-            headers: {
-              "x-rapidapi-key":
-                "06c5b738f4mshc8d3980a4797856p1bc186jsn6b1d2e762eba",
-              "x-rapidapi-host":
-                "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            },
-          };
+      // searchBy === "recipe name"
+      {
+        method: "GET",
+        url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch",
+        params: {
+          query: input,
+          cuisine: cuisine,
+          diet: diet,
+          intolerances: intolerances,
+          type: category,
+          instructionsRequired: "true",
+          addRecipeInformation: "true",
+          number: "2",
+        },
+        headers: {
+          "x-rapidapi-key":
+            "06c5b738f4mshc8d3980a4797856p1bc186jsn6b1d2e762eba",
+          "x-rapidapi-host":
+            "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        },
+      };
+    // : {
+    //     method: "GET",
+    //     url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
+    //     params: {
+    //       ingredients: input,
+    //       number: "2",
+    //     },
+    //     headers: {
+    //       "x-rapidapi-key":
+    //         "06c5b738f4mshc8d3980a4797856p1bc186jsn6b1d2e762eba",
+    //       "x-rapidapi-host":
+    //         "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    //     },
+    //  };
 
     try {
       const response = await axios.request(options);
       console.log("data: ", response.data);
       setShowResults(true);
-      searchBy === "recipe name"
-        ? setRecipes(response.data.results)
-        : setRecipes(response.data);
+      // searchBy === "recipe name" ?
+      setRecipes(response.data.results);
+      // : setRecipes(response.data);
     } catch (error) {
       console.error(error);
     }

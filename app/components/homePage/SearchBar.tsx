@@ -6,7 +6,7 @@ import { HiSearch, HiFilter } from "react-icons/hi";
 
 export default function SearchBar({ onSearch, errorMessage }) {
   const [showFilters, setShowFilters] = useState(false);
-  const [searchBy, setSearchBy] = useState("recipe name");
+  // const [searchBy, setSearchBy] = useState("recipe name");
   const [input, setInput] = useState("");
   const [category, setCategory] = useState("");
   const [cuisine, setCuisine] = useState("");
@@ -18,12 +18,11 @@ export default function SearchBar({ onSearch, errorMessage }) {
     console.log("in handle submit");
     e.preventDefault();
     // setLoading(true);
-    await onSearch(searchBy, input, category, cuisine, diet, intolerances);
+    await onSearch(/*searchBy,*/ input, category, cuisine, diet, intolerances);
     // setLoading(false);
   };
 
   // useEffect for errors
-  console.log(input);
   // check if we are fetching by recipe or ingredient (maybe add random later)
   // text input
   // category
@@ -43,7 +42,8 @@ export default function SearchBar({ onSearch, errorMessage }) {
         {/* Search input and buttons */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
           <div className="flex items-center">
-            <Label
+            <p>Search by recipe name: </p>
+            {/* <Label
               htmlFor="searchBy"
               value="Search by:"
               className="whitespace-nowrap"
@@ -56,7 +56,7 @@ export default function SearchBar({ onSearch, errorMessage }) {
             >
               <option>recipe name</option>
               <option>ingredients</option>
-            </Select>
+            </Select> */}
           </div>
 
           <TextInput
@@ -74,7 +74,7 @@ export default function SearchBar({ onSearch, errorMessage }) {
 
           <div className="flex flex-row gap-5">
             <Button
-              className={`bg-green text-dark hover:bg-green ${searchBy === "ingredients" ? "hidden" : ""}`}
+              className={"bg-green text-dark hover:bg-green"}
               onClick={() => setShowFilters(!showFilters)}
             >
               Filters <HiFilter className="my-auto ml-2 text-dark" />
@@ -90,9 +90,7 @@ export default function SearchBar({ onSearch, errorMessage }) {
       </div>
 
       {/* Filters Section */}
-      <div
-        className={`mt-4 ${showFilters || searchBy === "recipe name" ? "block" : "hidden"}`}
-      >
+      <div className={`mt-4 ${showFilters ? "block" : "hidden"}`}>
         <div className="flex flex-row flex-wrap gap-5 rounded-lg p-1">
           <Select
             className="min-w-[170px]"

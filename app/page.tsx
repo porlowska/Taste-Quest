@@ -22,7 +22,6 @@ export default function Home() {
       <NaviBar />
       <Jumbotron onClick={handleClick} />
       <RecipeSearch />
-
       <Footer />
     </>
   );
