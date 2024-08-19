@@ -3,11 +3,12 @@ import SearchBar from "./SearchBar";
 import { useState } from "react";
 import data from "../../api/endpoint-test";
 import axios from "axios";
-import useLocalStorageState from "use-local-storage-state";
+import extractData from "@/app/api/extractData";
 
 // create .env file for keys!!
 
 const RecipeSearch = () => {
+  let extractedData;
   const [recipes, setRecipes] = useState(data.recipes);
   const [showResults, setShowResults] = useState(false);
 
@@ -59,11 +60,11 @@ const RecipeSearch = () => {
 
     try {
       const response = await axios.request(options);
-      console.log("data: ", response.data);
+      console.log("data: ", response.data.results);
+      extractedData = extractData(response.data.results);
+      console.log("extracted data: ", extractedData);
       setShowResults(true);
-      // searchBy === "recipe name" ?
       setRecipes(response.data.results);
-      // : setRecipes(response.data);
     } catch (error) {
       console.error(error);
     }
