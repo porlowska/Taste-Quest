@@ -18,6 +18,7 @@ export default function RecipeCard({ recipeDetails }) {
   const router = useRouter();
 
   const handleRecipeClick = () => {
+    localStorage.setItem("selectedRecipe", JSON.stringify(recipeDetails));
     router.push("/recipe");
   };
 
@@ -55,9 +56,9 @@ export default function RecipeCard({ recipeDetails }) {
 
         {/* add to favourites  */}
 
-        <Button outline pill>
+        {/* <Button outline pill>
           <HiHeart className="h-6 w-6" />
-        </Button>
+        </Button> */}
       </div>
     </Card>
   );

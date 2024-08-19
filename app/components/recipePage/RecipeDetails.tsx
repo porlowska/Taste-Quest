@@ -1,10 +1,17 @@
 import { HiHeart } from "react-icons/hi";
 
-export default function RecipeDetails({ details, tags }) {
+export default function RecipeDetails({ details }) {
+  let tags = [
+    details.dishTypes,
+    details.cuisines,
+    details.diets,
+    details.occasions,
+  ].flat();
+
   return (
     <div className="px-10 pb-5">
       <h1 className="font-kulim text-4xl font-bold sm:text-6xl">
-        {details[0]}
+        {details.title}
       </h1>
       {/* tags */}
       <div className="flex-start flex">
@@ -19,17 +26,17 @@ export default function RecipeDetails({ details, tags }) {
           ))}
         </div>
         {/* add to favourites */}
-        <button>
+        {/* <button>
           <HiHeart className="h-8 w-8 md:h-10 md:w-10" />
-        </button>
+        </button> */}
       </div>
 
       <div className="m-1 my-auto mt-3 block">
         <span className="mr-2 rounded-full bg-lavender px-3 py-1 text-sm text-dark dark:bg-gray-700 dark:text-gray-300">
-          {`Ready in ${details[2]} minutes`}
+          {`Ready in ${details.readyInMinutes} minutes`}
         </span>
         <span className="mr-2 rounded-full bg-lavender px-3 py-1 text-sm text-dark dark:bg-gray-700 dark:text-gray-300">
-          {`Serves ${details[3]}`}
+          {`Serves ${details.servings}`}
         </span>
       </div>
     </div>

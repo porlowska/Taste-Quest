@@ -1,20 +1,16 @@
 import NaviBar from "../components/NaviBar";
-import Jumbotron from "../components/homePage/Jumbotron";
-import SearchBar from "../components/homePage/SearchBar";
 import RecipeSection from "../components/homePage/RecipeSection";
 import Footer from "../components/Footer";
+
+// Get from local sotrage
+//populate recpeie cards
+//if local sotrage is pupulated show results to true and get recipes
 
 export default function Home() {
   return (
     <main className="">
       <NaviBar />
-      {/* <SearchBar />
-      <Jumbotron /> */}
-      <div>
-        <h2>Searched recipies</h2>
-        {/* iterrated */}
-        {/* <RecipeSection /> */}
-      </div>
+      {/* <RecipeSection recipes={recipes} showResults={showResults} /> */}
       <Footer />
     </main>
   );
