@@ -7,7 +7,6 @@ export default function RecipeDetails({ details }) {
     details.diets,
     details.occasions,
   ].flat();
-  console.log(tags);
 
   return (
     <div className="px-10 pb-5">
@@ -27,9 +26,9 @@ export default function RecipeDetails({ details }) {
           ))}
         </div>
         {/* add to favourites */}
-        <button>
+        {/* <button>
           <HiHeart className="h-8 w-8 md:h-10 md:w-10" />
-        </button>
+        </button> */}
       </div>
 
       <div className="m-1 my-auto mt-3 block">

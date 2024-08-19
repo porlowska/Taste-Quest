@@ -20,7 +20,6 @@ export default function Home() {
   useEffect(() => {
     const storedRecipe = localStorage.getItem("selectedRecipe");
     const selectedRecipe = JSON.parse(storedRecipe);
-    console.log(selectedRecipe);
     setRecipe(selectedRecipe);
   }, []);
 

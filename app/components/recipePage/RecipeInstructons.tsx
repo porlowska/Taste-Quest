@@ -1,8 +1,6 @@
 import DOMPurify from "dompurify";
 
 export default function RecipeInstructions({ instructions }) {
-  console.log(instructions);
-
   return (
     <div className="md:pl-15 flex-1 py-5 pl-10 lg:pl-20">
       <h2 className="py-3 font-kulim text-3xl font-semibold">How to:</h2>

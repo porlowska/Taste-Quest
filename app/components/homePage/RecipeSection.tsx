@@ -2,8 +2,6 @@ import { useState } from "react";
 import RecipeCard from "./RecipeCard";
 
 export default function RecipeSection({ recipes, isSearched }) {
-  //const [showResults, setShowResults] = useState(false);
-
   // let allRecipes;
 
   // if (!isSearched && localStorage.length === 0) {
