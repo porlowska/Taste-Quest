@@ -28,12 +28,12 @@ export default function NaviBar() {
         >
           Home
         </NavbarLink>
-        <NavbarLink
+        {/* <NavbarLink
           href="/favourites"
           className="bg-light text-center font-kulim text-dark hover:bg-inherit hover:text-lavender md:hover:text-lavender"
         >
           Favourites
-        </NavbarLink>
+        </NavbarLink> */}
       </NavbarCollapse>
     </Navbar>
   );

@@ -15,22 +15,9 @@ export default function SearchBar({ onSearch, errorMessage }) {
   // const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    console.log("in handle submit");
     e.preventDefault();
-    // setLoading(true);
     await onSearch(/*searchBy,*/ input, category, cuisine, diet, intolerances);
-    // setLoading(false);
   };
-
-  // useEffect for errors
-  // check if we are fetching by recipe or ingredient (maybe add random later)
-  // text input
-  // category
-  // cuisine
-  // diet
-  // intolerances
-
-  // useEffect for errors
 
   return (
     <form
