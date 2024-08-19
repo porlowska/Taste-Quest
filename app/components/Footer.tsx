@@ -7,14 +7,14 @@ export default function PageFooter() {
       <div className="flex w-full flex-col items-center  ">
         <FooterCopyright
           href="/"
-          by="MEGEB™"
+          by="TasteQuest"
           year={2024}
           className="text-dark"
         />
         <div className="mt-4 flex space-x-6 pb-2">
           <FooterIcon href="#" icon={BsLinkedin} className="text-dark" />
           <FooterIcon
-            href="https://github.com/porlowska/megeb"
+            href="https://github.com/porlowska/Taste-Quest"
             icon={BsGithub}
             className="text-dark"
           />

@@ -34,7 +34,7 @@ const RecipeSearch = () => {
           instructionsRequired: "true",
           addRecipeInformation: "true",
           fillIngredients: "true",
-          number: "2",
+          number: "10",
         },
         headers: {
           "x-rapidapi-key":

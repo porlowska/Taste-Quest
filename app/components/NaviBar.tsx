@@ -14,10 +14,10 @@ export default function NaviBar() {
         <img
           src="images/logo.png"
           className="mr-3 h-6 sm:h-10"
-          alt="MEGEB Logo"
+          alt="TasteQuest Logo"
         />
         <span className="self-center whitespace-nowrap font-kulim text-2xl font-bold text-dark dark:text-light">
-          MEGEB
+          TasteQuest
         </span>
       </NavbarBrand>
       <NavbarToggle />
