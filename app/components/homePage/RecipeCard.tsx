@@ -47,9 +47,6 @@ export default function RecipeCard({ recipeDetails }) {
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
           {recipeDetails.title}
         </h5>
-        <Button outline pill>
-          <HiHeart className="h-6 w-6" />
-        </Button>
       </div>
 
       <div className="flex flex-row justify-between">
