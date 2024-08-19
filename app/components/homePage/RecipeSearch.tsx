@@ -60,12 +60,11 @@ const RecipeSearch = () => {
 
     try {
       const response = await axios.request(options);
-      console.log("data: ", response.data.results);
       extractedData = extractData(response.data.results);
       console.log("extracted data: ", extractedData);
       setisSearched(true);
       localStorage.clear();
-      setRecipes(response.data.results);
+      setRecipes(extractedData);
     } catch (error) {
       console.error(error);
     }
