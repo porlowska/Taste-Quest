@@ -3,26 +3,14 @@ import SearchBar from "./SearchBar";
 import { useState } from "react";
 import data from "../../api/endpoint-test";
 import axios from "axios";
+import extractData from "@/app/api/extractData";
 
 // create .env file for keys!!
 
 const RecipeSearch = () => {
+  let extractedData;
   const [recipes, setRecipes] = useState(data.recipes);
-  const [showResults, setShowResults] = useState(false);
-
-  // handle search async function: takes a url and runs through if statements to select filters
-
-  // if data is returned, save data in state array (extract data here) setRecipes(response.recipes)
-
-  // searchbar props: onSearch={handleSearch}, errorMessage={catch message}
-
-  // RecipeSection
-
-  // handle openRecipe
-  //use router to open the page and come back to home page
-  //if we use router do we need to fetch again the states??
-
-  //handle addToFavourites
+  const [isSearched, setisSearched] = useState(false);
 
   const handleSearch = async (
     // searchBy,
@@ -45,6 +33,7 @@ const RecipeSearch = () => {
           type: category,
           instructionsRequired: "true",
           addRecipeInformation: "true",
+          fillIngredients: "true",
           number: "2",
         },
         headers: {
@@ -71,11 +60,10 @@ const RecipeSearch = () => {
 
     try {
       const response = await axios.request(options);
-      console.log("data: ", response.data);
-      setShowResults(true);
-      // searchBy === "recipe name" ?
-      setRecipes(response.data.results);
-      // : setRecipes(response.data);
+      extractedData = extractData(response.data.results);
+      setisSearched(true);
+      localStorage.clear();
+      setRecipes(extractedData);
     } catch (error) {
       console.error(error);
     }
@@ -84,7 +72,7 @@ const RecipeSearch = () => {
   return (
     <div>
       <SearchBar onSearch={handleSearch} errorMessage={"error"} />
-      <RecipeSection recipes={recipes} showResults={showResults} />
+      <RecipeSection recipes={recipes} isSearched={isSearched} />
     </div>
   );
 };
