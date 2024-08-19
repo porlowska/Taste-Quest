@@ -3,26 +3,13 @@ import SearchBar from "./SearchBar";
 import { useState } from "react";
 import data from "../../api/endpoint-test";
 import axios from "axios";
+import useLocalStorageState from "use-local-storage-state";
 
 // create .env file for keys!!
 
 const RecipeSearch = () => {
   const [recipes, setRecipes] = useState(data.recipes);
   const [showResults, setShowResults] = useState(false);
-
-  // handle search async function: takes a url and runs through if statements to select filters
-
-  // if data is returned, save data in state array (extract data here) setRecipes(response.recipes)
-
-  // searchbar props: onSearch={handleSearch}, errorMessage={catch message}
-
-  // RecipeSection
-
-  // handle openRecipe
-  //use router to open the page and come back to home page
-  //if we use router do we need to fetch again the states??
-
-  //handle addToFavourites
 
   const handleSearch = async (
     // searchBy,
@@ -45,6 +32,7 @@ const RecipeSearch = () => {
           type: category,
           instructionsRequired: "true",
           addRecipeInformation: "true",
+          fillIngredients: "true",
           number: "2",
         },
         headers: {

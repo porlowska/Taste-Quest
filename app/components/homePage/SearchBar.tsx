@@ -22,16 +22,6 @@ export default function SearchBar({ onSearch, errorMessage }) {
     // setLoading(false);
   };
 
-  // useEffect for errors
-  // check if we are fetching by recipe or ingredient (maybe add random later)
-  // text input
-  // category
-  // cuisine
-  // diet
-  // intolerances
-
-  // useEffect for errors
-
   return (
     <form
       className="m-4 mt-8 flex flex-col items-center"
