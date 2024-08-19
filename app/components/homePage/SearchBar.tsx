@@ -1,21 +1,28 @@
 "use client";
 
-import { ToggleSwitch, TextInput, Select, Button, Label } from "flowbite-react";
+import { TextInput, Select, Button, Label } from "flowbite-react";
 import { useState } from "react";
-import { HiSearch, HiRefresh, HiFilter } from "react-icons/hi";
+import { HiSearch, HiFilter } from "react-icons/hi";
 
-export default function SearchBar(onSearch, errorMessage) {
+export default function SearchBar({ onSearch, errorMessage }) {
   const [showFilters, setShowFilters] = useState(false);
+  // const [searchBy, setSearchBy] = useState("recipe name");
   const [input, setInput] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [category, setCategory] = useState("");
+  const [cuisine, setCuisine] = useState("");
+  const [diet, setDiet] = useState("");
+  const [intolerances, setIntolerances] = useState("");
+  // const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
+    console.log("in handle submit");
     e.preventDefault();
-    setLoading(true);
-    await onSearch();
-    setLoading(false);
+    // setLoading(true);
+    await onSearch(/*searchBy,*/ input, category, cuisine, diet, intolerances);
+    // setLoading(false);
   };
 
+  // useEffect for errors
   // check if we are fetching by recipe or ingredient (maybe add random later)
   // text input
   // category
@@ -35,7 +42,8 @@ export default function SearchBar(onSearch, errorMessage) {
         {/* Search input and buttons */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
           <div className="flex items-center">
-            <Label
+            <p>Search by recipe name: </p>
+            {/* <Label
               htmlFor="searchBy"
               value="Search by:"
               className="whitespace-nowrap"
@@ -43,11 +51,12 @@ export default function SearchBar(onSearch, errorMessage) {
             <Select
               id="searchBy"
               className="ml-2 min-w-[135px] flex-grow"
+              onChange={(e) => setSearchBy(e.target.value)}
               required
             >
               <option>recipe name</option>
               <option>ingredients</option>
-            </Select>
+            </Select> */}
           </div>
 
           <TextInput
@@ -65,7 +74,7 @@ export default function SearchBar(onSearch, errorMessage) {
 
           <div className="flex flex-row gap-5">
             <Button
-              className="bg-green text-dark hover:bg-green"
+              className={"bg-green text-dark hover:bg-green"}
               onClick={() => setShowFilters(!showFilters)}
             >
               Filters <HiFilter className="my-auto ml-2 text-dark" />
@@ -83,7 +92,10 @@ export default function SearchBar(onSearch, errorMessage) {
       {/* Filters Section */}
       <div className={`mt-4 ${showFilters ? "block" : "hidden"}`}>
         <div className="flex flex-row flex-wrap gap-5 rounded-lg p-1">
-          <Select className="min-w-[170px]">
+          <Select
+            className="min-w-[170px]"
+            onChange={(e) => setCategory(e.target.value)}
+          >
             <option value="">RECIPE CATEGORY</option>
             <option>main course</option>
             <option>side dish</option>
@@ -98,7 +110,10 @@ export default function SearchBar(onSearch, errorMessage) {
             <option>drink</option>
           </Select>
 
-          <Select className="min-w-[170px]">
+          <Select
+            className="min-w-[170px]"
+            onChange={(e) => setCuisine(e.target.value)}
+          >
             <option value="">CUISINE</option>
             <option>African</option>
             <option>Chinese</option>
@@ -125,7 +140,10 @@ export default function SearchBar(onSearch, errorMessage) {
             <option>Latin American</option>
           </Select>
 
-          <Select className="min-w-[170px]">
+          <Select
+            className="min-w-[170px]"
+            onChange={(e) => setDiet(e.target.value)}
+          >
             <option value="">DIET TYPE</option>
             <option>Pescetarian</option>
             <option>Lacto Vegetarian</option>
@@ -136,7 +154,10 @@ export default function SearchBar(onSearch, errorMessage) {
             <option>Primal</option>
           </Select>
 
-          <Select className="min-w-[170px]">
+          <Select
+            className="min-w-[170px]"
+            onChange={(e) => setIntolerances(e.target.value)}
+          >
             <option value="">INTOLERANCES</option>
             <option>Dairy</option>
             <option>Egg</option>

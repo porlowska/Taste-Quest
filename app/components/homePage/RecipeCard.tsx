@@ -2,38 +2,55 @@
 
 import { Card, Button } from "flowbite-react";
 import { HiHeart } from "react-icons/hi";
+import { useRouter } from "next/navigation";
 
-export default function RecipeCard({recipe}) {
-
-  const fillColor='none'
+export default function RecipeCard({ recipeDetails }) {
+  const fillColor = "none";
   // const fillColor = !fav
   //   ? 'none'
   //   : fav= true
   //   ?'currentColour';
 
-  function handleClick(){
+  function handleFavClick() {
     // add to hav change fill of the heart
   }
 
-  let tags = [recipe.dishTypes, recipe.cuisines, recipe.diets, recipe.occasions].flat()
+  const router = useRouter();
+
+  const handleRecipeClick = () => {
+    router.push("/recipe");
+  };
+
+  let tags = [
+    recipeDetails.dishTypes,
+    recipeDetails.cuisines,
+    recipeDetails.diets,
+    recipeDetails.occasions,
+  ].flat();
 
   return (
     <Card
       className="max-w-md "
-      imgAlt={recipe.title}
-      imgSrc={recipe.image}
+      imgAlt={recipeDetails.title}
+      imgSrc={recipeDetails.image}
+      onClick={handleRecipeClick}
     >
-      <a href="#">
+      <div>
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-          {recipe.title}
+          {recipeDetails.title}
         </h5>
-      </a>
-      
+      </div>
+
       <div className="flex justify-between">
-        <div className="block my-auto">
-        {tags.map((tag, index)=>(
-          <span key={index} className="bg-green text-dark text-sm  me-2 px-3 py-1 rounded-full dark:bg-gray-700 dark:text-gray-300"># {tag}</span>
-        ))}
+        <div className="my-auto block">
+          {tags.map((tag, index) => (
+            <span
+              key={index}
+              className="me-2 rounded-full bg-green  px-3 py-1 text-sm text-dark dark:bg-gray-700 dark:text-gray-300"
+            >
+              # {tag}
+            </span>
+          ))}
         </div>
 
         {/* add to favourites  */}
@@ -45,4 +62,3 @@ export default function RecipeCard({recipe}) {
     </Card>
   );
 }
-
