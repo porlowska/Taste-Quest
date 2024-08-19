@@ -3,6 +3,7 @@
 import { Card, Button } from "flowbite-react";
 import { HiHeart } from "react-icons/hi";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function RecipeCard({ recipeDetails }) {
   const fillColor = "none";
@@ -31,18 +32,28 @@ export default function RecipeCard({ recipeDetails }) {
   return (
     <Card
       className="max-w-md "
-      imgAlt={recipeDetails.title}
-      imgSrc={recipeDetails.image}
       onClick={handleRecipeClick}
+      renderImage={() => (
+        <Image
+          width={500}
+          height={500}
+          src={recipeDetails.image}
+          alt={recipeDetails.title}
+          style={{ objectFit: "cover" }}
+        />
+      )}
     >
-      <div>
+      <div className="flex flex-row justify-between align-baseline">
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
           {recipeDetails.title}
         </h5>
+        <Button outline pill>
+          <HiHeart className="h-6 w-6" />
+        </Button>
       </div>
 
-      <div className="flex justify-between">
-        <div className="my-auto block">
+      <div className="flex flex-row justify-between">
+        <div className="my-auto flex flex-row flex-wrap gap-2">
           {tags.map((tag, index) => (
             <span
               key={index}
@@ -53,11 +64,7 @@ export default function RecipeCard({ recipeDetails }) {
           ))}
         </div>
 
-        {/* add to favourites  */}
-
-        <Button outline pill>
-          <HiHeart className="h-6 w-6" />
-        </Button>
+        {/* add to favourites */}
       </div>
     </Card>
   );
