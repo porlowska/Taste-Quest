@@ -1,5 +1,6 @@
 import { useState } from "react";
 import RecipeCard from "./RecipeCard";
+import RecipeAlert from "../RecipeAlert";
 
 export default function RecipeSection({ recipes, isSearched }) {
   // let allRecipes;
@@ -26,9 +27,15 @@ export default function RecipeSection({ recipes, isSearched }) {
     <section>
       {isSearched ? (
         <div className="mt-3 flex flex-col gap-8 md:flex-row md:flex-wrap md:justify-center ">
-          {recipes.map((recipe, index) => (
-            <RecipeCard recipeDetails={recipe} />
-          ))}
+          {recipes.length === 0 ? (
+            <RecipeAlert />
+          ) : (
+            <>
+              {recipes.map((recipe, index) => (
+                <RecipeCard key={index} recipeDetails={recipe} />
+              ))}
+            </>
+          )}
         </div>
       ) : (
         <div className="mb-16 flex flex-col items-center">
